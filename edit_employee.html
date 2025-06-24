@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{% if request.endpoint == 'add_employee' %}Add Employee{% else %}Edit Employee{% endif %}</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.name.label }} {{ form.name(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.email.label }} {{ form.email(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.job_title.label }} {{ form.job_title(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.salary.label }} {{ form.salary(class="form-control") }}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

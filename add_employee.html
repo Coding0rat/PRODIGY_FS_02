@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">{% if request.endpoint == 'add_employee' %}Add Employee{% else %}Edit Employee{% endif %}</h4>
+      </div>
+      <div class="card-body">
+        <form method="POST">
+          {{ form.hidden_tag() }}
+          <div class="mb-3">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control") }}
+          </div>
+          <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control") }}
+          </div>
+          <div class="mb-3">
+            {{ form.job_title.label(class="form-label") }}
+            {{ form.job_title(class="form-control") }}
+          </div>
+          <div class="mb-3">
+            {{ form.salary.label(class="form-label") }}
+            {{ form.salary(class="form-control") }}
+          </div>
+          {{ form.submit(class="btn btn-primary w-100") }}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
